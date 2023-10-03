@@ -1,6 +1,5 @@
 import Header from "@/components/Header"
-import Sidebar from "@/components/Sidebar"
-import { Box, ChakraProvider, Container, Flex } from "@chakra-ui/react"
+import { ChakraProvider, Container } from "@chakra-ui/react"
 
 export const metadata = {
   title: "Next.js",
