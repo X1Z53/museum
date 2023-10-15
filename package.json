@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -16,12 +18,17 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "react-slick": "^0.29.0",
+    "react-waypoint": "^10.3.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
+    "@types/react-anchor-link-smooth-scroll": "^1.0.3",
     "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.10",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "typescript": "latest"
