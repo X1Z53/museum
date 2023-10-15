@@ -1,7 +1,12 @@
 "use client"
 import HUD from "@/components/hud/HUD"
 import { CacheProvider } from "@chakra-ui/next-js"
-import { ChakraProvider, Container, extendTheme } from "@chakra-ui/react"
+import {
+  CSSReset,
+  ChakraProvider,
+  Container,
+  extendTheme,
+} from "@chakra-ui/react"
 import { Global } from "@emotion/react"
 import localFont from "next/font/local"
 import { ReactNode, createContext, useState } from "react"
@@ -17,6 +22,13 @@ const theme = extendTheme({
   fonts: {
     heading: KyivType,
     body: KyivType,
+  },
+  styles: {
+    global: {
+      body: {
+        backgroundColor: "#e1e1e1",
+      },
+    },
   },
   components: {
     Stepper: {
@@ -39,37 +51,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const [section, setSection] = useState(1)
 
   return (
-    <html
-      lang="ru"
-      style={{ scrollBehavior: "smooth", backgroundColor: "#e1e1e1" }}
-    >
+    <html lang="ru" style={{ scrollBehavior: "smooth" }}>
       <body>
         <CacheProvider>
           <ChakraProvider {...{ theme }}>
             <sectionContext.Provider
               value={{
                 section,
-                setSection: (number: number) => {
-                  setSection(number)
-                  console.log(number)
-                },
+                setSection,
               }}
             >
+              <CSSReset />
               <Global
                 styles={`
-                @font-face {
-                  font-family: 'KyivType';
-                  font-style: normal;
-                  font-weight: 400;
-                  font-display: swap;
-                  src: url('../public/KyivType.ttf') format('ttf');
-                }
-              `}
+                  @font-face {
+                    font-family: 'KyivType';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-display: swap;
+                    src: url('../public/KyivType.ttf') format('ttf');
+                  }
+                `}
               />
               <HUD />
-              <Container maxWidth={"container.xl"} paddingY={5}>
-                {children}
-              </Container>
+              <Container maxWidth={"container.lg"}>{children}</Container>
             </sectionContext.Provider>
           </ChakraProvider>
         </CacheProvider>

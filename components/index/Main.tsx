@@ -1,102 +1,83 @@
-"use client"
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 import {
-  Box,
   Card,
-  CardBody,
   Center,
+  Flex,
   Heading,
   IconButton,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/react"
-import { useRef } from "react"
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
-import Slider from "react-slick"
+import { useEffect, useState } from "react"
 
 export default function Main() {
-  const ref = useRef(null)
-  const settings = {
-    ref,
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    arrows: false,
-    pauseOnHover: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-  }
+  const cards = [
+    { text: "Добро пожаловать" },
+    { text: "2" },
+    { text: "3" },
+    { text: "4" },
+  ]
+
+  const [cardIndex, setCardIndex] = useState(0)
+
+  useEffect(() => console.log(cardIndex), [cardIndex])
 
   return (
-    <Center position={"relative"}>
-      <Box width={"55dvw"} borderRadius={10}>
-        <Slider {...settings}>
+    <Center flexDirection={"column"} position={"relative"} gap={2}>
+      <Flex width={"50dvw"} height={"50dvh"} overflow={"hidden"}>
+        {cards.map((card, index) => (
           <Card
-            backgroundColor={"blackAlpha.500"}
-            textAlign={"center"}
-            height={"50dvh"}
+            key={index}
+            borderRadius={10}
+            transform={`translate(${-50 * cardIndex}dvw)`}
+            transition={"all 0.5s"}
+            minWidth={"100%"}
           >
-            <CardBody height={"100%"}>
-              <Heading
-                top={"50%"}
-                transform={"translate(0, -50%)"}
-                position={"absolute"}
-              >
-                Добро пожаловать в музей киноаппаратуры на базе СПбГИКиТ
-              </Heading>
-            </CardBody>
+            <Center height={"100%"}>
+              <Heading>{card.text}</Heading>
+            </Center>
           </Card>
-          <Card
-            backgroundColor={"blackAlpha.500"}
-            textAlign={"center"}
-            height={"50dvh"}
-          >
-            <CardBody height={"100%"}>
-              <Heading
-                top={"50%"}
-                transform={"translate(0, -50%)"}
-                position={"absolute"}
-              >
-                Добро пожаловать в музей киноаппаратуры на базе СПбГИКиТ
-              </Heading>
-            </CardBody>
-          </Card>
-          <Card
-            backgroundColor={"blackAlpha.500"}
-            textAlign={"center"}
-            height={"50dvh"}
-          >
-            <CardBody height={"100%"}>
-              <Heading
-                top={"50%"}
-                transform={"translate(0, -50%)"}
-                position={"absolute"}
-              >
-                Добро пожаловать в музей киноаппаратуры на базе СПбГИКиТ
-              </Heading>
-            </CardBody>
-          </Card>
-        </Slider>
-      </Box>
-
+        ))}
+      </Flex>
       <IconButton
-        position={"absolute"}
-        aria-label={"Left"}
-        onClick={() => ref?.current?.slickPrev()}
         isRound
+        position={"absolute"}
+        variant={"ghost"}
         left={0}
-        colorScheme="blackAlpha"
-        variant={"ghost"}
-        icon={<BsChevronLeft />}
+        aria-label="prev"
+        icon={<ChevronLeftIcon />}
+        onClick={() =>
+          setCardIndex((value) => (value != 0 ? value - 1 : cards.length - 1))
+        }
       />
       <IconButton
-        position={"absolute"}
-        aria-label={"Right"}
-        onClick={() => ref?.current?.slickNext()}
         isRound
-        right={0}
-        colorScheme="blackAlpha"
+        position={"absolute"}
         variant={"ghost"}
-        icon={<BsChevronRight />}
+        right={0}
+        aria-label="next"
+        icon={<ChevronRightIcon />}
+        onClick={() => setCardIndex((value) => (value + 1) % cards.length)}
       />
+      <RadioGroup
+        bottom={-5}
+        position={"absolute"}
+        onChange={(value) => setCardIndex(Number(value))}
+        value={String(cardIndex)}
+        colorScheme="white"
+      >
+        <Flex gap={1}>
+          {cards.map((_, index) => (
+            <Radio
+              size={"md"}
+              border={"#"}
+              backgroundColor={"gray"}
+              value={String(index)}
+              key={index}
+            />
+          ))}
+        </Flex>
+      </RadioGroup>
     </Center>
   )
 }

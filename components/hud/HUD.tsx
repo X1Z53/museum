@@ -1,19 +1,24 @@
-import { Footer, Header, Sides } from "@/components/hud"
-import { Box, Container } from "@chakra-ui/react"
+import { Footer, Header } from "@/components/hud"
+import { Container, Flex } from "@chakra-ui/react"
+import LeftSide from "./LeftSide"
+import RightSide from "./RightSide"
 
 export default function HUD() {
   return (
-    <Box position={"sticky"} top={0}>
-      <Container
-        height={"100dvh"}
-        maxWidth={"100dvw"}
-        position={"absolute"}
-        paddingX={"5dvw"}
-      >
+    <Flex
+      position={"sticky"}
+      top={0}
+      justifyContent={"center"}
+      paddingX={"4dvw"}
+    >
+      <Container height={"100dvh"} position={"absolute"} maxWidth={"100%"}>
         <Header />
-        <Sides />
+        <Flex justifyContent={"space-between"}>
+          <LeftSide />
+          <RightSide />
+        </Flex>
         <Footer />
       </Container>
-    </Box>
+    </Flex>
   )
 }
