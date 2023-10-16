@@ -6,14 +6,10 @@ import {
   Hide,
   IconButton,
   Image,
-  useColorMode,
-  useColorModeValue,
 } from "@chakra-ui/react"
 import { AiOutlineInfoCircle, AiOutlineSearch } from "react-icons/ai"
 
 export default function Header() {
-  const { toggleColorMode } = useColorMode()
-
   return (
     <Center width={"100%"} height={"20dvh"}>
       <Center width={"100%"} justifyContent={"space-between"} gap={5}>
@@ -52,17 +48,6 @@ export default function Header() {
           <Box width={"200%"} />
         </Center>
         <Center justifyContent={"space-around"} gap={5}>
-          <IconButton
-            fontSize={"3xl"}
-            isRound
-            onClick={toggleColorMode}
-            aria-label={"Search"}
-            variant={"ghost"}
-            icon={useColorModeValue(
-              <AiOutlineInfoCircle />,
-              <AiOutlineSearch />
-            )}
-          />
           <IconButton
             fontSize={"3xl"}
             isRound
