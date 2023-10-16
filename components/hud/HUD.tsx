@@ -9,7 +9,7 @@ export default function HUD() {
       position={"sticky"}
       top={0}
       justifyContent={"center"}
-      paddingX={"4dvw"}
+      marginX={"4dvw"}
     >
       <Container height={"100dvh"} position={"absolute"} maxWidth={"100%"}>
         <Header />

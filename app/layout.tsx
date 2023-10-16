@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 `}
               />
               <HUD />
-              <Container maxWidth={"container.lg"}>{children}</Container>
+              <Container maxWidth={"60dvw"}>{children}</Container>
             </sectionContext.Provider>
           </ChakraProvider>
         </CacheProvider>
