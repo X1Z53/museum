@@ -16,29 +16,12 @@ import "slick-carousel/slick/slick.css"
 const font = localFont({ src: "../public/KyivType.ttf" })
 const KyivType = font.style.fontFamily
 
-const theme = extendTheme({
+const theme = extendTheme({ 
   initialColorMode: "light",
   useSystemColorMode: false,
   fonts: {
     heading: KyivType,
     body: KyivType,
-  },
-  styles: {
-    global: {
-      body: {
-        backgroundColor: "#e1e1e1",
-      },
-    },
-  },
-  components: {
-    Stepper: {
-      baseStyle: {
-        indicator: {
-          border: 0,
-          backgroundColor: "white",
-        },
-      },
-    },
   },
 })
 
@@ -52,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang="ru" style={{ scrollBehavior: "smooth" }}>
-      <body>
+      <body style={{ backgroundColor: "#E1E1E1" }}>
         <CacheProvider>
           <ChakraProvider {...{ theme }}>
             <sectionContext.Provider

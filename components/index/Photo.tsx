@@ -16,7 +16,7 @@ export default function Photo() {
             ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quos ducimus provident. Cum nulla natus architecto!"
             : ""}
           <Flex>
-            <Card>
+            <Card zIndex={-1}>
               <CardHeader>
                 <Center>
                   <Image width={"25%"} alt={String(value)} src="/logo.svg" />
@@ -25,8 +25,7 @@ export default function Photo() {
               <CardBody>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
                 aliquid voluptates suscipit harum nam, accusantium
-                exercitationem, at deleniti earum atque, dicta soluta saepe!
-                Fuga iure repudiandae laudantium a.
+                exercitationem.
               </CardBody>
             </Card>
           </Flex>

@@ -13,7 +13,7 @@ export default function Video() {
           key={index}
           flexDirection={"column"}
           width={"100%"}
-          padding={"1dvw"}
+          padding={"2dvw"}
         >
           <Flex justifyContent={"space-between"}>
             {card.map((image, index) => (

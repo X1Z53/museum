@@ -14,7 +14,7 @@ export default function About() {
     <Flex gap={5}>
       {Array.from(Array(3).keys()).map((value) => (
         <Card
-          zIndex={1 + Number(selected === value)}
+          zIndex={Number(selected === value)}
           key={value}
           onMouseEnter={() => setSelected(value)}
           onMouseLeave={() => setSelected(-1)}
@@ -28,7 +28,7 @@ export default function About() {
             <Flex gap={5}>
               <Heading size={"md"}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-                quidem voluptas, est beatae ipsa eius accusamus.
+                quidem voluptas.
               </Heading>
               <Image width={"25%"} alt={String(value)} src="/logo.svg" />
             </Flex>
@@ -36,12 +36,7 @@ export default function About() {
           <CardBody>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliquid
             voluptates suscipit harum nam, accusantium exercitationem, at
-            deleniti earum atque, dicta soluta saepe! Fuga iure repudiandae
-            laudantium a. Odit, quibusdam. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Facere quia corporis repellat omnis
-            architecto, recusandae exercitationem! Ipsam non illo explicabo,
-            laborum nisi porro debitis doloremque, eligendi, cumque quis
-            necessitatibus maiores.
+            deleniti earum atque, dicta soluta saepe!
           </CardBody>
         </Card>
       ))}
