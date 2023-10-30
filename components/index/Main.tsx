@@ -24,7 +24,7 @@ export default function Main() {
 
   return (
     <Center flexDirection={"column"} position={"relative"} gap={2}>
-      <Flex width={"50dvw"} height={"50dvh"} overflow={"hidden"}>
+      <Flex width={"50dvw"} height={"50dvh"} zIndex={-1} overflow={"hidden"}>
         {cards.map((card, index) => (
           <Card
             key={index}

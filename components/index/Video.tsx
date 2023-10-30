@@ -7,7 +7,7 @@ export default function Video() {
   ]
 
   return (
-    <Flex flexDirection={"column"} gap={10}>
+    <Flex flexDirection={"column"} zIndex={-1} gap={10}>
       {images.map((card, index) => (
         <Card
           key={index}

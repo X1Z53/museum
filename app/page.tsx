@@ -18,7 +18,7 @@ export default function Page() {
   return (
     <Center flexDirection={"column"}>
       {Object.keys(sections).map((section, index) => (
-        <Center key={index} id={section} height={"100dvh"}>
+        <Center key={index} id={section} minHeight={"100dvh"} gap={10}>
           <Waypoint onEnter={() => setSection(index + 1)} />
           {sections[section]}
         </Center>

@@ -9,7 +9,12 @@ import {
 
 export default function Photo() {
   return (
-    <Flex width={"100%"} justifyContent={"space-between"} gap={100}>
+    <Flex
+      width={"100%"}
+      justifyContent={"space-between"}
+      flexDirection={{ base: "column", sm: "row" }}
+      gap={100}
+    >
       {Array.from(Array(3).keys()).map((value) => (
         <Flex key={value} flexDirection={"column"} gap={5}>
           {value % 2

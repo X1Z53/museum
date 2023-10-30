@@ -1,9 +1,10 @@
 import { Footer, Header } from "@/components/hud"
-import { Container, Flex } from "@chakra-ui/react"
+import { Box, Container, Flex, useBreakpointValue } from "@chakra-ui/react"
 import LeftSide from "./LeftSide"
 import RightSide from "./RightSide"
 
 export default function HUD() {
+  const belowMd = useBreakpointValue({ base: false, md: true })
   return (
     <Flex
       position={"sticky"}
@@ -11,13 +12,24 @@ export default function HUD() {
       justifyContent={"center"}
       marginX={"4dvw"}
     >
-      <Container height={"100dvh"} position={"absolute"} maxWidth={"100%"}>
+      <Container
+        height={"100dvh"}
+        position={"absolute"}
+        justifyContent={"space-between"}
+        maxWidth={"100%"}
+      >
         <Header />
-        <Flex justifyContent={"space-between"}>
-          <LeftSide />
-          <RightSide />
-        </Flex>
-        <Footer />
+        {belowMd ? (
+          <>
+            <Flex justifyContent={"space-between"}>
+              <LeftSide />
+              <RightSide />
+            </Flex>
+            <Footer />
+          </>
+        ) : (
+          <Box height={"65dvh"} />
+        )}
       </Container>
     </Flex>
   )

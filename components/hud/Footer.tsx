@@ -1,4 +1,5 @@
 import { Box, Button, Center, Heading } from "@chakra-ui/react"
+import TicketButton from "./TicketButton"
 
 export default function Footer() {
   return (
@@ -7,14 +8,7 @@ export default function Footer() {
       justifyContent={"space-between"}
       position={"relative"}
     >
-      <Button
-        backgroundColor={"black"}
-        color={"white"}
-        height={"4dvh"}
-        paddingX={"3dvw"}
-      >
-        <Heading size={"sm"}>Купить билет</Heading>
-      </Button>
+      <TicketButton />
       <Box
         position={"absolute"}
         height={"35dvh"}
