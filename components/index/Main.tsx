@@ -24,7 +24,12 @@ export default function Main() {
 
   return (
     <Center flexDirection={"column"} position={"relative"} gap={2}>
-      <Flex width={"50dvw"} height={"50dvh"} zIndex={-1} overflow={"hidden"}>
+      <Flex
+        width={{ md: "50dvw", base: "100%" }}
+        height={"50dvh"}
+        zIndex={-1}
+        overflow={"hidden"}
+      >
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -32,6 +37,7 @@ export default function Main() {
             transform={`translate(${-50 * cardIndex}dvw)`}
             transition={"all 0.5s"}
             minWidth={"100%"}
+            textAlign={"center"}
           >
             <Center height={"100%"}>
               <Heading>{card.text}</Heading>
