@@ -5,6 +5,7 @@ import RightSide from "./RightSide"
 
 export default function HUD() {
   const belowMd = useBreakpointValue({ base: false, md: true })
+  
   return (
     <Flex
       position={"sticky"}

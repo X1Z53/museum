@@ -12,7 +12,7 @@ import { useState } from "react"
 export default function About() {
   const [selected, setSelected] = useState(-1)
   return (
-    <Flex gap={5} flexDirection={{base: "column", sm: "row"}}>
+    <Flex gap={5} flexDirection={{ base: "column", sm: "row" }}>
       {Array.from(Array(3).keys()).map((value) => (
         <Box
           backgroundColor={"white"}
@@ -31,13 +31,19 @@ export default function About() {
             background={"transparent"}
             boxShadow={0}
             borderRadius={10}
-            filter={
-              selected === value || selected === -1 ? "blur(0)" : "blur(5px)"
-            }
+            filter={{
+              md: `blur(${
+                selected === value || selected === -1 ? "0" : "5px"
+              })`,
+              sm: "blur(0)",
+            }}
             _hover={{
-              transform: "scale(1.2)",
-              backgroundColor: "white",
-              boxShadow: "base",
+              md: {
+                transform: "scale(1.2)",
+                backgroundColor: "white",
+                boxShadow: "base",
+              },
+              sm: {},
             }}
           >
             <CardHeader>

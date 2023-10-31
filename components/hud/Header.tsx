@@ -1,3 +1,4 @@
+import { Link } from "@chakra-ui/next-js"
 import {
   Box,
   Button,
@@ -16,7 +17,9 @@ export default function Header() {
   return (
     <Center width={"100%"} height={"20dvh"}>
       <Center width={"100%"} justifyContent={"space-between"} gap={5}>
-        <Image height={{ base: "15dvh" }} alt={"Logo"} src={"/logo.png"} />
+        <Link href="/" width={{ md: "25%", sm: "100%" }}>
+          <Image height={{ base: "15vh" }} alt={"Logo"} src={"/logo.png"} />
+        </Link>
         {belowMd ? (
           <>
             <Center width={"100%"} gap={10}>
