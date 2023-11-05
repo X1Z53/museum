@@ -5,8 +5,11 @@ import { useEffect, useState } from "react"
 
 type CSV = { id: string; name: string; description: string }
 
-export default function Exhibit({ params }: { params: { exhibit: string } }) {
-  const { exhibit: exhibitId } = params
+export default function Exhibit({
+  params: { exhibit: exhibitId },
+}: {
+  params: { exhibit: string }
+}) {
   const [exhibitData, setExhibitData] = useState({} as CSV)
 
   useEffect(() => {
@@ -22,13 +25,11 @@ export default function Exhibit({ params }: { params: { exhibit: string } }) {
           }
         ),
     })
-  }, [exhibitId])
-
+  }, [])
   console.log(exhibitData)
 
   return (
     <Center minHeight={"100vh"} flexDirection={"column"}>
-
       <Heading>{exhibitData.name}</Heading>
       <Heading size={"sm"}>{exhibitData.description}</Heading>
     </Center>
